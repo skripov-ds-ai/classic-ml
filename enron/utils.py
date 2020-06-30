@@ -29,7 +29,14 @@ def get_text(lines):
         if not len(line.strip()):
             idx = i
             break
-    return "\n".join(map(lambda x: x.strip(), lines[idx:]))
+    text = "\n".join(map(lambda x: x.strip(), lines[idx:]))
+    try:
+        idx = text.index('- Forwarded')
+        if idx > -1:
+            text = text[:idx].strip(' -')
+    except:
+        pass
+    return text
 
 
 def make_dataset(paths=paths):
@@ -51,7 +58,8 @@ def make_dataset(paths=paths):
                     'subject': subject,
                     'from': fr,
                     'to': recipient,
-                    'text': text
+                    'text': text,
+                    'path': p,
                 }
                 data.append(d)
 
