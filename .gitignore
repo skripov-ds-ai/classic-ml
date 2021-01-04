@@ -248,3 +248,4 @@ dmypy.json
 cython_debug/
 /data/
 /classicml/
+*/*/data/
