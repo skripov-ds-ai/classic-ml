@@ -249,3 +249,9 @@ cython_debug/
 /data/
 /classicml/
 */*/data/
+
+/venv*/
+*.txt
+*.pkl
+*.zip
+*.csv
